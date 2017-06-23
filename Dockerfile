@@ -4,7 +4,6 @@ MAINTAINER Dennis-Florian Herr <herrdeflo@gmail.com>
 # additional env as suggested by rbenv ruby-build
 RUN sudo apt-get install -y \
     bison \
-    libreadline-dev \
     libssl-dev \
     libyaml-dev \
     libreadline6-dev \
