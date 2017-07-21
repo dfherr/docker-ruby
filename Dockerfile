@@ -2,7 +2,8 @@ FROM       dfherr/ubuntu:16.04
 MAINTAINER Dennis-Florian Herr <herrdeflo@gmail.com>
 
 # additional env as suggested by rbenv ruby-build
-RUN sudo apt-get install -y \
+RUN sudo apt-get update -qq -y && \
+    sudo apt-get install -y \
     bison \
     libssl-dev \
     libyaml-dev \
@@ -11,7 +12,9 @@ RUN sudo apt-get install -y \
     libncurses5-dev \
     libffi-dev \
     libgdbm3 \
-    libgdbm-dev
+    libgdbm-dev; \
+    sudo rm -rf /var/lib/apt/lists/*; \
+    sudo rm -rf /var/cache/apt/*;
 
 # ruby installation
 
@@ -24,9 +27,8 @@ RUN cd /tmp;                                \
     ./bin/ruby-build $ruby_version /usr/local; \
     cd; rm -rf /tmp/ruby-build*
 
-RUN gem install bundler --version 1.15.1 --no-rdoc --no-ri
-RUN gem install pry --no-rdoc --no-ri
-
-RUN gem update --system --no-document
+RUN gem install bundler --version 1.15.2 --no-rdoc --no-ri; \
+    gem install pry --no-rdoc --no-ri; \
+    gem update --system --no-document
 
 ENV PATH .bundle/bin:$PATH
