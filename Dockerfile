@@ -27,7 +27,7 @@ RUN cd /tmp;                                \
     ./bin/ruby-build $ruby_version /usr/local; \
     cd; rm -rf /tmp/ruby-build*
 
-RUN gem install bundler --version 1.15.2 --no-rdoc --no-ri; \
+RUN gem install bundler --version 1.15.3 --no-rdoc --no-ri; \
     gem install pry --no-rdoc --no-ri; \
     gem update --system --no-document
 
