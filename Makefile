@@ -1,5 +1,5 @@
 REPO ?= dfherr/ruby
-TAG  ?= 2.4.1
+TAG  ?= 2.5.1
 
 all: build push
 

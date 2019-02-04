@@ -18,9 +18,9 @@ RUN sudo apt-get update -qq -y && \
 
 # ruby installation
 
-ARG ruby_version=2.4.1
+ARG ruby_version=2.5.1
 RUN cd /tmp;                                \
-    curl -LO https://github.com/sstephenson/ruby-build/archive/v20170405.tar.gz; \
+    curl -LO https://github.com/rbenv/ruby-build/archive/v20190130.tar.gz; \
     sudo chown ubuntu: *.tar.gz;           \
     tar xvzf *.tar.gz; rm -f *.tar.gz;      \
     cd ruby-build*;                         \
